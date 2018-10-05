@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		044965382167C28800F431E5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044965372167C28800F431E5 /* User.swift */; };
 		547221C96829E6F537FCE2FE /* Pods_twitter_alamofire_demoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FCA05DC47A45B9943F23F5F /* Pods_twitter_alamofire_demoUITests.framework */; };
 		6C028F67F4B75B9CE911AB20 /* Pods_twitter_alamofire_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 001F2EB27736B82E6AF0082B /* Pods_twitter_alamofire_demo.framework */; };
 		BEBC8368211F4199003A5FE1 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBC8367211F4199003A5FE1 /* TimelineViewController.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		001F2EB27736B82E6AF0082B /* Pods_twitter_alamofire_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_twitter_alamofire_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044965372167C28800F431E5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3FCA05DC47A45B9943F23F5F /* Pods_twitter_alamofire_demoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_twitter_alamofire_demoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		434659329CA4ED45495F750D /* Pods-twitter_alamofire_demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter_alamofire_demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-twitter_alamofire_demo/Pods-twitter_alamofire_demo.debug.xcconfig"; sourceTree = "<group>"; };
 		4DFA54CBFE40EC0C9E20906F /* Pods-twitter_alamofire_demoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter_alamofire_demoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-twitter_alamofire_demoTests/Pods-twitter_alamofire_demoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		ED1AFD241E942B2500FD4B90 = {
 			isa = PBXGroup;
 			children = (
+				044965372167C28800F431E5 /* User.swift */,
 				ED1AFD2F1E942B2500FD4B90 /* twitter_alamofire_demo */,
 				ED1AFD441E942B2500FD4B90 /* twitter_alamofire_demoTests */,
 				ED1AFD4F1E942B2500FD4B90 /* twitter_alamofire_demoUITests */,
@@ -201,7 +204,6 @@
 				ED1AFD2A1E942B2500FD4B90 /* Frameworks */,
 				ED1AFD2B1E942B2500FD4B90 /* Resources */,
 				EFABDEB238D312BBD2FC49B8 /* [CP] Embed Pods Frameworks */,
-				1AD42F8148E97BF87B55B826 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -220,8 +222,6 @@
 				ED1AFD3D1E942B2500FD4B90 /* Sources */,
 				ED1AFD3E1E942B2500FD4B90 /* Frameworks */,
 				ED1AFD3F1E942B2500FD4B90 /* Resources */,
-				200D01AC1DC970353ABDC649 /* [CP] Embed Pods Frameworks */,
-				442077332C405000BF9F081F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -241,8 +241,6 @@
 				ED1AFD481E942B2500FD4B90 /* Sources */,
 				ED1AFD491E942B2500FD4B90 /* Frameworks */,
 				ED1AFD4A1E942B2500FD4B90 /* Resources */,
-				08A0276EE8AF7CDCC6E754D3 /* [CP] Embed Pods Frameworks */,
-				EA162E987D837BDF5DC5369F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -342,73 +340,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-twitter_alamofire_demoTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		08A0276EE8AF7CDCC6E754D3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-twitter_alamofire_demoUITests/Pods-twitter_alamofire_demoUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1AD42F8148E97BF87B55B826 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-twitter_alamofire_demo/Pods-twitter_alamofire_demo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		200D01AC1DC970353ABDC649 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-twitter_alamofire_demoTests/Pods-twitter_alamofire_demoTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		442077332C405000BF9F081F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-twitter_alamofire_demoTests/Pods-twitter_alamofire_demoTests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5C4A3CEE1918456EBE336A5E /* [CP] Check Pods Manifest.lock */ = {
@@ -417,13 +358,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-twitter_alamofire_demo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7022D4CCEFBD1FE1F7645438 /* [CP] Check Pods Manifest.lock */ = {
@@ -432,28 +376,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-twitter_alamofire_demoUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		EA162E987D837BDF5DC5369F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-twitter_alamofire_demoUITests/Pods-twitter_alamofire_demoUITests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EFABDEB238D312BBD2FC49B8 /* [CP] Embed Pods Frameworks */ = {
@@ -462,9 +394,18 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-twitter_alamofire_demo/Pods-twitter_alamofire_demo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/OAuthSwift/OAuthSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/OAuthSwiftAlamofire/OAuthSwiftAlamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAuthSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAuthSwiftAlamofire.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -481,6 +422,7 @@
 				ED1AFD611E94496E00FD4B90 /* LoginViewController.swift in Sources */,
 				BEBC8368211F4199003A5FE1 /* TimelineViewController.swift in Sources */,
 				ED1AFD5F1E94421000FD4B90 /* APIManager.swift in Sources */,
+				044965382167C28800F431E5 /* User.swift in Sources */,
 				ED1AFD311E942B2500FD4B90 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
