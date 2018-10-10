@@ -18,8 +18,8 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var tweetCreatedAtLabel: UILabel!
     @IBOutlet weak var tweetRetweetedLabel: UILabel!
     @IBOutlet weak var tweetFavoriteLabel: UILabel!
-    @IBOutlet weak var tweetFavoriteButton: UIImageView!
-    @IBOutlet weak var tweetRetweetButton: UIImageView!
+    @IBOutlet weak var tweetRetweetButton: UIButton!
+    @IBOutlet weak var tweetFavoriteButton: UIButton!
     
     var tweet: Tweet! {
         didSet {
@@ -28,7 +28,66 @@ class TweetCell: UITableViewCell {
     }
     
     
-
+    @IBAction func didTapFavoirte(_ sender: Any) {
+        if(tweet.favorited == false){
+            tweet.favorited = true
+            tweet.favoriteCount! += 1
+            fetchData()
+            APIManager.shared.favorite( tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error favoriting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Successfully favorited the following Tweet: \n\(tweet.text)")
+                }
+            }
+        }
+        else{
+            tweet.favorited = false
+            tweet.favoriteCount! -= 1
+            fetchData()
+            APIManager.shared.unfavorite(with: tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error unfavoriting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Successfully unfavorited the following Tweet: \n\(tweet.text)")
+                }
+                
+            }
+        }
+        
+    }
+    
+    @IBAction func didTapRetweet(_ sender: Any) {
+        if(tweet.retweeted == false){
+            tweet.retweeted = true
+            tweet.retweetCount! += 1
+            fetchData()
+            APIManager.shared.favorite( tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error favoriting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Successfully favorited the following Tweet: \n\(tweet.text)")
+                }
+            }
+        }
+        else{
+            tweet.retweeted = false
+            tweet.retweetCount! -= 1
+            fetchData()
+            APIManager.shared.unfavorite(with: tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error unfavoriting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Successfully unfavorited the following Tweet: \n\(tweet.text)")
+                }
+                
+            }
+        }
+        
+        
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -47,9 +106,26 @@ class TweetCell: UITableViewCell {
         tweetCreatedAtLabel.text = tweet.createdAtString
         tweetRetweetedLabel.text = String(tweet.retweetCount!)
         tweetFavoriteLabel.text = String(tweet.favoriteCount!)
+      
+        if(tweet.favorited)!{
+            tweetFavoriteButton.setImage(UIImage(named:"favor-icon-red"), for: .normal)
+        }
+        else{
+            tweetFavoriteButton.setImage(UIImage(named:"favor-icon"), for: .normal)
+        }
+        if (tweet.retweeted)!
+        {
+            tweetRetweetButton.setImage(UIImage(named: "retweet-icon-green"), for: .normal)
+        }
+        else
+        {
+            tweetRetweetButton.setImage(UIImage(named: "retweet-icon"), for: .normal)
+        }
+       
+       
         
         let profileImage = NSURL(string: tweet.user!.profileImage!)
-        tweetProfileImage.setImageWith(profileImage as! URL)
+        tweetProfileImage.setImageWith(profileImage! as URL)
         
              }
     

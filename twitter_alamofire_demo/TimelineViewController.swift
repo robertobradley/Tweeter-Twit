@@ -20,6 +20,8 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         APIManager.logout()
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,10 +29,12 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.delegate = self
         //Refresh controller initializer
          let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+         tableView.insertSubview(refreshControl, at: 0)
         
-       // tableView.rowHeight = UITableViewAutomaticDimension
-       // tableView.estimatedRowHeight = 100
-        tableView.rowHeight = 200
+       tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
+        //tableView.rowHeight = 200
         
         APIManager.shared.getHomeTimeLine { (tweets, error) in
             if let tweets = tweets {
@@ -61,7 +65,21 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
-
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        APIManager.shared.getHomeTimeLine {(tweets, error) in
+            if let tweets = tweets {
+                self.tweets = tweets
+                self.tableView.reloadData()
+            }
+            else if let error = error{
+                print("There was an error in getting home timeline" + error.localizedDescription)
+            }
+            self.tableView.reloadData()
+            
+            refreshControl.endRefreshing()
+        }
+       
+    }
     /*
     // MARK: - Navigation
 
