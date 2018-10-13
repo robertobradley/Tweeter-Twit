@@ -17,7 +17,7 @@ class User {
     var profileImage: String?
     
     
-    private static var _current: User?
+    
     // TODO: Create initializer
     init(dictionary: [String: Any]) {
         self.dictionary = dictionary
@@ -26,12 +26,9 @@ class User {
         profileImage = dictionary["profile_image_url_https"] as? String
     }
     
+    private static var _current: User?
     
     static var current: User? {
-        
-        
-        
-        
         get {
             if _current == nil {
                 let defaults = UserDefaults.standard

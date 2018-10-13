@@ -13,14 +13,13 @@ import UIKit
 class TimelineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var tweets: [Tweet] = []
+    var myIndex = 0
     
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func onLogout(_ sender: Any) {
-        APIManager.logout()
+        APIManager.shared.logout()
     }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,14 +79,30 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         }
        
     }
+    
+    
+    // Get the new view controller using segue.destinationViewController.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //  Pass the selected object to the new view controller.
+        print("made it to segue")
+        if let detailView = segue.destination as? DetailViewController {
+            print("detailview blah blah")
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPath(for: cell){
+                let tweet = tweets[indexPath.row]
+                detailView.tweet = tweet
+                
+            }
+            
+            
+        }
+        
+    }
     /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+*/
 
 }

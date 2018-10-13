@@ -44,7 +44,7 @@ class APIManager: SessionManager {
                     print("Welcome \(user.name)")
                     
                     // MARK: TODO: set User.current, so that it's persisted
-                    
+                    User.current = user
                     success()
                 }
             })
@@ -55,10 +55,10 @@ class APIManager: SessionManager {
     
 
     
-    static func logout() {
+    func logout() {
         // 1. Clear current user
         User.current = nil
-        
+        clearCredentials()
         // TODO: 2. Deauthorize OAuth tokens
         
         // 3. Post logout notification

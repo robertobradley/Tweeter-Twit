@@ -22,25 +22,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
             self.window?.rootViewController = loginViewController
-        
-        
-       
-        
-       
-            
-            
         }
         //possible user persistence
-         let currentUser = User.current
-        if currentUser == nil {
-            print("no user data here")
-            
-        }
-        else {
+        if(User.current != nil){
+            // Load and show the login view controller
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let homeTimelineViewController = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
-            window?.rootViewController = homeTimelineViewController
+            let timeLineView = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
+            window?.rootViewController = timeLineView
         }
+            
+        
+    
         // MARK: TODO: Check for logged in user
         
         return true

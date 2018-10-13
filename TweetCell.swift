@@ -102,7 +102,7 @@ class TweetCell: UITableViewCell {
         tweetProfileImage.image = nil
         tweetTextLabel.text = tweet.text
         tweetUsernameLael.text = tweet.user?.name
-        tweetScreenNameLabel.text = tweet.user?.screenName
+        tweetScreenNameLabel.text = "@" + (tweet.user?.screenName)!
         tweetCreatedAtLabel.text = tweet.createdAtString
         tweetRetweetedLabel.text = String(tweet.retweetCount!)
         tweetFavoriteLabel.text = String(tweet.favoriteCount!)
