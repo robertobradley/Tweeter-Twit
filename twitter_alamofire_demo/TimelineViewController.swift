@@ -13,7 +13,6 @@ import UIKit
 class TimelineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var tweets: [Tweet] = []
-    var myIndex = 0
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -84,9 +83,7 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
     // Get the new view controller using segue.destinationViewController.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //  Pass the selected object to the new view controller.
-        print("made it to segue")
         if let detailView = segue.destination as? DetailViewController {
-            print("detailview blah blah")
             let cell = sender as! UITableViewCell
             if let indexPath = tableView.indexPath(for: cell){
                 let tweet = tweets[indexPath.row]

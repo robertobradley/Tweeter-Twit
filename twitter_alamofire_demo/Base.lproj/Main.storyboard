@@ -291,11 +291,17 @@
                                 <rect key="frame" x="96" y="338" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="retweet-icon"/>
+                                <connections>
+                                    <action selector="detaildidTapRetweet:" destination="r1A-z4-l1B" eventType="touchUpInside" id="B0l-Qj-UEc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWf-fc-pzG">
                                 <rect key="frame" x="179" y="338" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="favor-icon"/>
+                                <connections>
+                                    <action selector="detaildidTapFavorite:" destination="r1A-z4-l1B" eventType="touchUpInside" id="hsj-09-hVr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OuD-3j-yL6">
                                 <rect key="frame" x="301" y="338" width="35" height="35"/>

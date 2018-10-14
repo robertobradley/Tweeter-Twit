@@ -31,26 +31,87 @@ class DetailViewController: UIViewController {
 //-----------------View DID LOAD ----------//
     override func viewDidLoad() {
         super.viewDidLoad()
-        //fetchData()
-        print("made it here 2")
-        if let tweet = tweet {
-        let profileImage = NSURL(string: tweet.user!.profileImage!)
-        detailImageView.setImageWith(profileImage! as URL)
+        fetchData()
         
-        detailNameLabel.text = tweet.user!.name
-        detailScreenNameLabel.text = "@" + (tweet.user!.screenName)!
-        detailStoryLabel.text = tweet.text
-        detailDateTimeLabel.text = tweet.createdAtString
-        detailFavoriteCountLabel.text = String(tweet.favoriteCount!)
-        detailRetweetCountLabel.text = String(tweet.retweetCount!)
-            
-        }
         
         // Do any additional setup after loading the view.
     }
     
-    /*func fetchData()
+    @IBAction func detaildidTapFavorite(_ sender: Any)
     {
+        if(tweet.favorited == false){
+            tweet.favorited = true
+            tweet.favoriteCount! += 1
+            fetchData()
+            APIManager.shared.favorite( tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error favoriting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Successfully favorited the following Tweet: \n\(tweet.text)")
+                }
+            }
+        }
+        else{
+            tweet.favorited = false
+            tweet.favoriteCount! -= 1
+            fetchData()
+            APIManager.shared.unfavorite(with: tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error unfavoriting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Successfully unfavorited the following Tweet: \n\(tweet.text)")
+                }
+                
+            }
+        }
+        
+    }
+    
+    @IBAction func detaildidTapRetweet(_ sender: Any)
+    {
+        if(tweet.retweeted == false){
+            tweet.retweeted = true
+            tweet.retweetCount! += 1
+            fetchData()
+            APIManager.shared.favorite( tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error favoriting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Successfully favorited the following Tweet: \n\(tweet.text)")
+                }
+            }
+        }
+        else{
+            tweet.retweeted = false
+            tweet.retweetCount! -= 1
+            fetchData()
+            APIManager.shared.unfavorite(with: tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error unfavoriting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Successfully unfavorited the following Tweet: \n\(tweet.text)")
+                }
+                
+            }
+        }
+    }
+    
+    func fetchData()
+    {
+        
+        if let tweet = tweet {
+            let profileImage = NSURL(string: tweet.user!.profileImage!)
+            detailImageView.setImageWith(profileImage! as URL)
+            
+            detailNameLabel.text = tweet.user!.name
+            detailScreenNameLabel.text = "@" + (tweet.user!.screenName)!
+            detailStoryLabel.text = tweet.text
+            detailDateTimeLabel.text = tweet.createdAtString
+            detailFavoriteCountLabel.text = String(tweet.favoriteCount!)
+            detailRetweetCountLabel.text = String(tweet.retweetCount!)
+            
+        }
+        
     if(tweet.favorited)!{
         detailFavoriteButton.setImage(UIImage(named:"favor-icon-red"), for: .normal)
     }
@@ -67,5 +128,5 @@ class DetailViewController: UIViewController {
     }
     }
    
-*/
+
 }
