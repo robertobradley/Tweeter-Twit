@@ -28,8 +28,8 @@ class ReplyViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
        self.replyTextField.layer.borderWidth = 1.0
         replyTextField.layer.borderColor = UIColor(red: 29/255, green: 202/255, blue: 255/255, alpha: 1.00).cgColor
-        replyTextField.text = "What's Happening"
-        replyTextField.textColor = UIColor(red: 29/255, green: 202/255, blue: 255/255, alpha: 1.00)
+        replyTextField.text = "What's Happening?"
+        replyTextField.textColor = UIColor(red: 29/255, green: 161/255, blue: 242/255, alpha: 1.00)
         replyTextField.delegate = self
         
     }
@@ -49,8 +49,16 @@ class ReplyViewController: UIViewController, UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
-        replyTextField.textColor = UIColor.black
-        replyTextField.text = "@" + String(tweet.user!.screenName!)! + " "
+        let stringToCount = "@" + String(tweet.user!.screenName!)! + " "
+        var snCount = stringToCount.characters.count - 1
+        
+        let colorString = "@" + String(tweet.user!.screenName!)! + " " as NSString
+        var myMutableString = NSMutableAttributedString()
+        myMutableString = NSMutableAttributedString(string: colorString as String, attributes: [NSFontAttributeName:UIFont(name: "Verdana", size: 16.0)!])
+        myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 29/255, green: 161/255, blue: 242/255, alpha: 1.00), range: NSRange(location:0,length:snCount))
+        
+        //replyTextField.textColor = UIColor.black
+        replyTextField.attributedText = myMutableString
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
