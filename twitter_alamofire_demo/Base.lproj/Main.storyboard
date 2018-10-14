@@ -312,6 +312,9 @@
                                 <rect key="frame" x="16" y="338" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="reply-icon"/>
+                                <connections>
+                                    <segue destination="r9e-MM-VWb" kind="push" id="WMj-T6-JQ9"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="42" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQR-vM-LK8">
                                 <rect key="frame" x="54" y="345" width="21" height="21"/>
@@ -344,15 +347,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Tw@" id="laU-MG-6Cd">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="4Ha-JC-w4f">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AYd-0e-PFM">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Reply"/>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Tw@" id="laU-MG-6Cd"/>
                     <connections>
                         <outlet property="detailDateTimeLabel" destination="PbD-83-Z1e" id="VND-Xu-hS0"/>
                         <outlet property="detailFavoriteButton" destination="kWf-fc-pzG" id="Sax-V9-eun"/>
@@ -370,6 +365,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="onb-zf-8jr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2548" y="37"/>
+        </scene>
+        <!--Reply-->
+        <scene sceneID="7kO-cb-Flk">
+            <objects>
+                <viewController storyboardIdentifier="ReplyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="r9e-MM-VWb" customClass="ReplyViewController" customModule="twitter_alamofire_demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sPh-5l-BWb"/>
+                        <viewControllerLayoutGuide type="bottom" id="pti-SF-4zm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JCl-14-Vph">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRH-Ic-N1j">
+                                <rect key="frame" x="245" y="359" width="23" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Character Count:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h4-2t-RW1">
+                                <rect key="frame" x="105" y="356" width="132" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AhS-Dq-NaZ">
+                                <rect key="frame" x="149" y="385" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reply" image="reply-icon">
+                                    <color key="titleColor" red="0.1054231739" green="0.58830042019999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onReply:" destination="r9e-MM-VWb" eventType="touchUpInside" id="YAd-g1-psi"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GZU-4q-IyA">
+                                <rect key="frame" x="106" y="252" width="163" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Reply" id="a7w-E9-eD4">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="syv-jR-bqK"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="replyButton" destination="AhS-Dq-NaZ" id="zYA-l6-nvh"/>
+                        <outlet property="replyCharacterCount" destination="cRH-Ic-N1j" id="EcW-5R-1s5"/>
+                        <outlet property="replyTextField" destination="GZU-4q-IyA" id="OGm-2J-mHs"/>
+                        <segue destination="RFK-Vv-pWW" kind="presentation" identifier="backHome" id="EPN-SF-oLs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rF2-aX-qmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3322" y="-728"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WXZ-z8-8LI">
@@ -398,4 +453,7 @@
         <image name="retweet-icon" width="30" height="30"/>
         <image name="twit-back" width="260" height="460"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="EPN-SF-oLs"/>
+    </inferredMetricsTieBreakers>
 </document>
