@@ -26,7 +26,7 @@ class ReplyViewController: UIViewController, UITextViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       self.replyTextField.layer.borderWidth = 1.0
+        replyTextField.layer.borderWidth = 4.0
         replyTextField.layer.borderColor = UIColor(red: 29/255, green: 202/255, blue: 255/255, alpha: 1.00).cgColor
         replyTextField.text = "What's Happening?"
         replyTextField.textColor = UIColor(red: 29/255, green: 161/255, blue: 242/255, alpha: 1.00)
@@ -50,7 +50,7 @@ class ReplyViewController: UIViewController, UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         
         let stringToCount = "@" + String(tweet.user!.screenName!)! + " "
-        var snCount = stringToCount.characters.count - 1
+        let snCount = stringToCount.characters.count - 1
         
         let colorString = "@" + String(tweet.user!.screenName!)! + " " as NSString
         var myMutableString = NSMutableAttributedString()
@@ -72,7 +72,7 @@ class ReplyViewController: UIViewController, UITextViewDelegate {
             replyCharacterCount.textColor = UIColor.red
         }
         else {
-            replyCharacterCount.textColor = UIColor.lightGray
+            replyCharacterCount.textColor = UIColor.darkGray
         }
         return newText.characters.count < characterLimit
     }

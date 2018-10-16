@@ -14,6 +14,7 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var tweets: [Tweet] = []
     
+    @IBOutlet weak var composeButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func onLogout(_ sender: Any) {
@@ -22,7 +23,7 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.layoutIfNeeded()
         tableView.dataSource = self
         tableView.delegate = self
         //Refresh controller initializer
@@ -48,6 +49,15 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+   
+    @IBAction func onCompose(_ sender: Any)
+    {
+        self.performSegue(withIdentifier: "composeSegue", sender: Any?.self)
+    }
+    @IBAction func onProfile(_ sender: Any)
+    {
+        self.performSegue(withIdentifier: "profileSegue", sender: Any?.self)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -95,6 +105,8 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
     }
+    
+    
     /*
     // MARK: - Navigation
 

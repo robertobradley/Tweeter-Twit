@@ -100,8 +100,13 @@ class DetailViewController: UIViewController {
     {
         
         if let tweet = tweet {
+            //setup Image
             let profileImage = NSURL(string: tweet.user!.profileImage!)
             detailImageView.setImageWith(profileImage! as URL)
+            detailImageView.layer.cornerRadius = detailImageView.frame.size.width/2
+            detailImageView.clipsToBounds = true
+            detailImageView.layer.borderWidth = 3
+            detailImageView.layer.borderColor = UIColor(red: 29/255, green: 202/255, blue: 255/255, alpha: 1.00).cgColor
             
             detailNameLabel.text = tweet.user!.name
             detailScreenNameLabel.text = "@" + (tweet.user!.screenName)!
