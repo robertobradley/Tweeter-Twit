@@ -26,13 +26,19 @@ class ReplyViewController: UIViewController, UITextViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        replyTextField.delegate = self
+        setTextField()
+    }
+    
+    
+    func setTextField()
+    {
         replyTextField.layer.borderWidth = 4.0
         replyTextField.layer.borderColor = UIColor(red: 29/255, green: 202/255, blue: 255/255, alpha: 1.00).cgColor
         replyTextField.text = "What's Happening?"
         replyTextField.textColor = UIColor(red: 29/255, green: 161/255, blue: 242/255, alpha: 1.00)
-        replyTextField.delegate = self
-        
     }
+    
     @IBAction func onReply(_ sender: Any) {
         let replyText = replyTextField.text
         APIManager.shared.replyTweet(with: replyText!, with: String(tweet.id!)){(tweet, error) in

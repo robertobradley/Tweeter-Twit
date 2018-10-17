@@ -33,6 +33,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         fetchData()
         
+        detailStoryLabel.contentMode = .scaleToFill
         
         // Do any additional setup after loading the view.
     }

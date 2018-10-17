@@ -63,7 +63,6 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
             } else if let tweet = tweet {
                 self.delegate?.did(post: tweet)
                 print("Compose Tweet Success!")
-                self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "twitSegue", sender: Any?.self)
             }
         }
